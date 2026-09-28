@@ -1,0 +1,187 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "VanMoof account",
+        "description": "Sign in with the e-mail address and password of your VanMoof account. All bikes of the account are added automatically; live values are read via Bluetooth.",
+        "data": {
+          "email": "E-mail",
+          "password": "Password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate",
+        "description": "The password for {email} is no longer valid. Please enter the current password.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid e-mail or password.",
+      "cannot_connect": "Could not connect to the VanMoof cloud.",
+      "no_bikes": "No bikes were found in this VanMoof account.",
+      "unknown": "Unexpected error, see the log for details."
+    },
+    "abort": {
+      "already_configured": "This VanMoof account is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "VanMoof options",
+        "data": {
+          "scan_interval": "Bluetooth polling interval",
+          "ride_statistics": "Load weekly ride statistics from the VanMoof app"
+        },
+        "data_description": {
+          "scan_interval": "The bike is connected briefly on every poll. While connected, the VanMoof app cannot connect."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "module_battery": {
+        "name": "Module battery"
+      },
+      "odometer": {
+        "name": "Odometer"
+      },
+      "power_level": {
+        "name": "Assist level"
+      },
+      "light_mode": {
+        "name": "Light mode",
+        "state": {
+          "auto": "Auto",
+          "on": "On",
+          "off": "Off",
+          "halo": "Halo"
+        }
+      },
+      "speed_limit": {
+        "name": "Speed limit region",
+        "state": {
+          "eu": "Europe (25 km/h)",
+          "us": "USA (32 km/h)",
+          "jp": "Japan (24 km/h)",
+          "25": "25 km/h",
+          "32": "32 km/h",
+          "24": "24 km/h"
+        }
+      },
+      "alarm": {
+        "name": "Alarm mode",
+        "state": {
+          "off": "Off",
+          "manual": "Manual",
+          "automatic": "Automatic"
+        }
+      },
+      "gear": {
+        "name": "Gear"
+      },
+      "module_state": {
+        "name": "Module state",
+        "state": {
+          "on": "On",
+          "off": "Off",
+          "shipping": "Shipping",
+          "standby": "Standby",
+          "alarm_1": "Alarm stage 1",
+          "alarm_2": "Alarm stage 2",
+          "alarm_3": "Alarm stage 3",
+          "sleeping": "Sleeping",
+          "tracking": "Tracking"
+        }
+      },
+      "unit_system": {
+        "name": "Unit system",
+        "state": {
+          "metric": "Metric",
+          "imperial": "Imperial"
+        }
+      },
+      "calories": {
+        "name": "Calories"
+      },
+      "error_code": {
+        "name": "Error code"
+      },
+      "firmware": {
+        "name": "Firmware"
+      },
+      "last_seen": {
+        "name": "Last seen"
+      },
+      "cloud_firmware": {
+        "name": "Smart module firmware"
+      },
+      "rides_week": {
+        "name": "Distance this week"
+      }
+    },
+    "binary_sensor": {
+      "in_range": {
+        "name": "In range"
+      },
+      "module_charging": {
+        "name": "Module charging"
+      },
+      "stolen": {
+        "name": "Reported stolen"
+      },
+      "tracking": {
+        "name": "Tracking"
+      },
+      "firmware_update": {
+        "name": "Firmware update"
+      }
+    },
+    "select": {
+      "power_level_select": {
+        "name": "Assist level",
+        "state": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "light_mode_select": {
+        "name": "Light",
+        "state": {
+          "auto": "Auto",
+          "on": "On",
+          "off": "Off"
+        }
+      },
+      "bell_tone": {
+        "name": "Bell tone",
+        "state": {
+          "sonar": "Sonar",
+          "bell": "Bell",
+          "party": "Party",
+          "foghorn": "Foghorn"
+        }
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Refresh"
+      },
+      "bell": {
+        "name": "Ring bell"
+      }
+    }
+  },
+  "exceptions": {
+    "lock_not_supported": {
+      "message": "VanMoof bikes can only be locked by pushing the kick lock on the bike."
+    }
+  }
+}

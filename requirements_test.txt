@@ -1,0 +1,4 @@
+pytest-homeassistant-custom-component
+aioresponses
+cbor2
+ruff

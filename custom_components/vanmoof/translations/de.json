@@ -1,0 +1,187 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "VanMoof-Konto",
+        "description": "Melde dich mit der E-Mail-Adresse und dem Passwort deines VanMoof-Kontos an. Alle Räder des Kontos werden automatisch hinzugefügt; Live-Werte werden per Bluetooth gelesen.",
+        "data": {
+          "email": "E-Mail",
+          "password": "Passwort"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Erneut anmelden",
+        "description": "Das Passwort für {email} ist nicht mehr gültig. Bitte gib das aktuelle Passwort ein.",
+        "data": {
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "E-Mail oder Passwort ist falsch.",
+      "cannot_connect": "Keine Verbindung zur VanMoof-Cloud möglich.",
+      "no_bikes": "In diesem VanMoof-Konto wurden keine Räder gefunden.",
+      "unknown": "Unerwarteter Fehler, Details im Log."
+    },
+    "abort": {
+      "already_configured": "Dieses VanMoof-Konto ist bereits eingerichtet.",
+      "reauth_successful": "Erneute Anmeldung erfolgreich."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "VanMoof-Optionen",
+        "data": {
+          "scan_interval": "Bluetooth-Abfrageintervall",
+          "ride_statistics": "Wöchentliche Fahrtenstatistik aus der VanMoof-App laden"
+        },
+        "data_description": {
+          "scan_interval": "Bei jeder Abfrage wird kurz eine Verbindung zum Rad aufgebaut. Solange kann sich die VanMoof-App nicht verbinden."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "module_battery": {
+        "name": "Modul-Akku"
+      },
+      "odometer": {
+        "name": "Kilometerstand"
+      },
+      "power_level": {
+        "name": "Unterstützungsstufe"
+      },
+      "light_mode": {
+        "name": "Lichtmodus",
+        "state": {
+          "auto": "Automatisch",
+          "on": "An",
+          "off": "Aus",
+          "halo": "Halo"
+        }
+      },
+      "speed_limit": {
+        "name": "Geschwindigkeitsregion",
+        "state": {
+          "eu": "Europa (25 km/h)",
+          "us": "USA (32 km/h)",
+          "jp": "Japan (24 km/h)",
+          "25": "25 km/h",
+          "32": "32 km/h",
+          "24": "24 km/h"
+        }
+      },
+      "alarm": {
+        "name": "Alarmmodus",
+        "state": {
+          "off": "Aus",
+          "manual": "Manuell",
+          "automatic": "Automatisch"
+        }
+      },
+      "gear": {
+        "name": "Gang"
+      },
+      "module_state": {
+        "name": "Modulstatus",
+        "state": {
+          "on": "An",
+          "off": "Aus",
+          "shipping": "Versandmodus",
+          "standby": "Standby",
+          "alarm_1": "Alarmstufe 1",
+          "alarm_2": "Alarmstufe 2",
+          "alarm_3": "Alarmstufe 3",
+          "sleeping": "Schlafend",
+          "tracking": "Ortung"
+        }
+      },
+      "unit_system": {
+        "name": "Einheitensystem",
+        "state": {
+          "metric": "Metrisch",
+          "imperial": "Imperial"
+        }
+      },
+      "calories": {
+        "name": "Kalorien"
+      },
+      "error_code": {
+        "name": "Fehlercode"
+      },
+      "firmware": {
+        "name": "Firmware"
+      },
+      "last_seen": {
+        "name": "Zuletzt gesehen"
+      },
+      "cloud_firmware": {
+        "name": "Smartmodul-Firmware"
+      },
+      "rides_week": {
+        "name": "Strecke diese Woche"
+      }
+    },
+    "binary_sensor": {
+      "in_range": {
+        "name": "In Reichweite"
+      },
+      "module_charging": {
+        "name": "Modul lädt"
+      },
+      "stolen": {
+        "name": "Als gestohlen gemeldet"
+      },
+      "tracking": {
+        "name": "Ortung"
+      },
+      "firmware_update": {
+        "name": "Firmware-Update"
+      }
+    },
+    "select": {
+      "power_level_select": {
+        "name": "Unterstützungsstufe",
+        "state": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "light_mode_select": {
+        "name": "Licht",
+        "state": {
+          "auto": "Automatisch",
+          "on": "An",
+          "off": "Aus"
+        }
+      },
+      "bell_tone": {
+        "name": "Klingelton",
+        "state": {
+          "sonar": "Sonar",
+          "bell": "Klingel",
+          "party": "Party",
+          "foghorn": "Nebelhorn"
+        }
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Aktualisieren"
+      },
+      "bell": {
+        "name": "Klingeln"
+      }
+    }
+  },
+  "exceptions": {
+    "lock_not_supported": {
+      "message": "VanMoof-Räder lassen sich nur durch Drücken des Kick-Locks am Rad abschließen."
+    }
+  }
+}
