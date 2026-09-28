@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mrclksr2409/VanMoof-integration/main/custom_components/vanmoof/brand/logo.png" alt="VanMoof" width="300">
+</p>
+
 # VanMoof für Home Assistant
 
 Custom Integration, die alle verfügbaren Informationen deines VanMoof-E-Bikes in Home Assistant bringt.
@@ -47,6 +51,8 @@ Abschließen ist nur physisch am Rad möglich (Kick-Lock). Das ist eine Eigensch
 3. **Einrichten:** *Einstellungen → Geräte & Dienste → Integration hinzufügen → VanMoof*, dann E-Mail und Passwort eingeben.
 
 Manuell geht es auch: den Ordner `custom_components/vanmoof` nach `<config>/custom_components/` kopieren.
+
+Icon und Logo liegen im Ordner `custom_components/vanmoof/brand/`. Home Assistant zeigt sie ab Version 2026.3 automatisch in der Integrationsübersicht an, ein Eintrag im Brands-Repository ist nicht nötig.
 
 ### Optionen
 
