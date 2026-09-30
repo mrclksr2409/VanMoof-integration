@@ -135,7 +135,10 @@ async def test_commands() -> None:
     await session.set_power_level(2)
     await session.set_light_mode(1)
     await session.play_sound(const.S3_SOUND_HORN)
+    await session.set_speed_limit(1)
     assert bike.writes[0] == (const.S3_LOCK_STATE, b"\x42\x24\x00" + b"\x00" * 13)
     assert bike.writes[1][1][:4] == b"\x42\x24\x02\x01"
     assert bike.writes[2][1][:3] == b"\x42\x24\x01"
     assert bike.writes[3][1][:4] == b"\x42\x24\x0a\x01"
+    assert bike.writes[4][0] == const.S3_SPEED_LIMIT
+    assert bike.writes[4][1][:4] == b"\x42\x24\x01\x00"
