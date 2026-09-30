@@ -1,0 +1,243 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "VanMoof-account",
+        "description": "Log in met het e-mailadres en wachtwoord van je VanMoof-account. Alle fietsen van het account worden automatisch toegevoegd; actuele waarden worden via Bluetooth uitgelezen.",
+        "data": {
+          "email": "E-mail",
+          "password": "Wachtwoord"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Opnieuw inloggen",
+        "description": "Het wachtwoord voor {email} is niet meer geldig. Voer het huidige wachtwoord in.",
+        "data": {
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ongeldig e-mailadres of wachtwoord.",
+      "cannot_connect": "Kan geen verbinding maken met de VanMoof-cloud.",
+      "no_bikes": "Er zijn geen fietsen gevonden in dit VanMoof-account.",
+      "unknown": "Onverwachte fout, zie het logboek voor details."
+    },
+    "abort": {
+      "already_configured": "Dit VanMoof-account is al ingesteld.",
+      "reauth_successful": "Opnieuw inloggen is gelukt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "VanMoof-opties",
+        "data": {
+          "scan_interval": "Bluetooth-pollinginterval",
+          "ride_statistics": "Wekelijkse ritstatistieken uit de VanMoof-app laden"
+        },
+        "data_description": {
+          "scan_interval": "Bij elke poll wordt kort verbinding gemaakt met de fiets. Zolang die verbinding bestaat, kan de VanMoof-app geen verbinding maken."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "module_battery": {
+        "name": "Module-accu"
+      },
+      "odometer": {
+        "name": "Kilometerstand"
+      },
+      "power_level": {
+        "name": "Ondersteuningsniveau"
+      },
+      "light_mode": {
+        "name": "Lichtmodus",
+        "state": {
+          "auto": "Automatisch",
+          "on": "Aan",
+          "off": "Uit",
+          "halo": "Halo"
+        }
+      },
+      "speed_limit": {
+        "name": "Snelheidsregio",
+        "state": {
+          "eu": "Europa (25 km/u)",
+          "us": "VS (32 km/u)",
+          "jp": "Japan (24 km/u)",
+          "25": "25 km/u",
+          "32": "32 km/u",
+          "24": "24 km/u"
+        }
+      },
+      "alarm": {
+        "name": "Alarmmodus",
+        "state": {
+          "off": "Uit",
+          "manual": "Handmatig",
+          "automatic": "Automatisch"
+        }
+      },
+      "gear": {
+        "name": "Versnelling"
+      },
+      "module_state": {
+        "name": "Modulestatus",
+        "state": {
+          "on": "Aan",
+          "off": "Uit",
+          "shipping": "Transportmodus",
+          "standby": "Stand-by",
+          "alarm_1": "Alarmfase 1",
+          "alarm_2": "Alarmfase 2",
+          "alarm_3": "Alarmfase 3",
+          "sleeping": "Slaapstand",
+          "tracking": "Tracking"
+        }
+      },
+      "unit_system": {
+        "name": "Eenhedenstelsel",
+        "state": {
+          "metric": "Metrisch",
+          "imperial": "Imperiaal"
+        }
+      },
+      "calories": {
+        "name": "Calorieën"
+      },
+      "error_code": {
+        "name": "Foutcode"
+      },
+      "firmware": {
+        "name": "Firmware"
+      },
+      "last_seen": {
+        "name": "Laatst gezien"
+      },
+      "cloud_firmware": {
+        "name": "Firmware smartmodule"
+      },
+      "rides_week": {
+        "name": "Afstand deze week"
+      }
+    },
+    "binary_sensor": {
+      "in_range": {
+        "name": "Binnen bereik"
+      },
+      "module_charging": {
+        "name": "Module laadt"
+      },
+      "stolen": {
+        "name": "Als gestolen gemeld"
+      },
+      "tracking": {
+        "name": "Tracking"
+      },
+      "firmware_update": {
+        "name": "Firmware-update"
+      }
+    },
+    "select": {
+      "power_level_select": {
+        "name": "Ondersteuningsniveau",
+        "state": {
+          "0": "0",
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "light_mode_select": {
+        "name": "Licht",
+        "state": {
+          "auto": "Automatisch",
+          "on": "Aan",
+          "off": "Uit"
+        }
+      },
+      "bell_tone": {
+        "name": "Beltoon",
+        "state": {
+          "sonar": "Sonar",
+          "bell": "Bel",
+          "party": "Feest",
+          "foghorn": "Misthoorn"
+        }
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Vernieuwen"
+      },
+      "bell": {
+        "name": "Bellen"
+      }
+    }
+  },
+  "exceptions": {
+    "lock_not_supported": {
+      "message": "VanMoof-fietsen kunnen alleen worden vergrendeld door het kick lock op de fiets in te drukken."
+    },
+    "invalid_device": {
+      "message": "Apparaat {device_id} is geen VanMoof-fiets van een geladen account."
+    },
+    "settings_not_supported": {
+      "message": "Voor {name} kunnen nog geen instellingen worden opgeslagen: schrijven via Bluetooth wordt alleen ondersteund op S3/X3-fietsen."
+    }
+  },
+  "services": {
+    "save_settings": {
+      "name": "Fietsinstellingen opslaan",
+      "description": "Slaat instellingen via Bluetooth op de fiets op. Alle opgegeven waarden worden in één verbinding geschreven; weggelaten instellingen blijven ongewijzigd. Alleen S3/X3-fietsen worden ondersteund.",
+      "fields": {
+        "device_id": {
+          "name": "Fiets",
+          "description": "De fiets(en) waarop de instellingen worden opgeslagen."
+        },
+        "power_level": {
+          "name": "Ondersteuningsniveau",
+          "description": "Motorondersteuning (0 = uit, 4 = maximaal)."
+        },
+        "light_mode": {
+          "name": "Licht",
+          "description": "Lichtmodus van de fiets."
+        },
+        "bell_tone": {
+          "name": "Beltoon",
+          "description": "Geluid dat de belknop afspeelt."
+        }
+      }
+    }
+  },
+  "selector": {
+    "power_level": {
+      "options": {
+        "0": "0 (uit)",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (maximaal)"
+      }
+    },
+    "light_mode": {
+      "options": {
+        "auto": "Automatisch",
+        "on": "Aan",
+        "off": "Uit"
+      }
+    },
+    "bell_tone": {
+      "options": {
+        "sonar": "Sonar",
+        "bell": "Bel",
+        "party": "Feest",
+        "foghorn": "Misthoorn"
+      }
+    }
+  }
+}

@@ -68,6 +68,10 @@ data:
   bell_tone: bell
 ```
 
+## Sprachen
+
+Die Oberfläche der Integration (Einrichtung, Optionen, Entitäten, Aktionen und Fehlermeldungen) ist auf **Deutsch**, **Englisch** und **Niederländisch** übersetzt. Home Assistant wählt die Sprache automatisch passend zur eingestellten Sprache des Benutzers.
+
 ## Installation
 
 1. **In HACS hinzufügen:** HACS → ⋮ → *Benutzerdefinierte Repositories* → `https://github.com/mrclksr2409/VanMoof-integration`, Typ *Integration*.
