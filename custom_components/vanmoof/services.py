@@ -10,7 +10,14 @@ from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry as dr
 
 from .ble_s3 import S3Session
-from .const import BELL_TONES, DOMAIN, POWER_LEVELS, S3_LIGHT_MODES, Generation
+from .const import (
+    BELL_TONES,
+    DOMAIN,
+    POWER_LEVELS,
+    S3_LIGHT_MODES,
+    S3_SPEED_LIMITS,
+    Generation,
+)
 from .coordinator import VanMoofBikeCoordinator, VanMoofConfigEntry
 
 SERVICE_SAVE_SETTINGS = "save_settings"
@@ -18,10 +25,12 @@ SERVICE_SAVE_SETTINGS = "save_settings"
 ATTR_POWER_LEVEL = "power_level"
 ATTR_LIGHT_MODE = "light_mode"
 ATTR_BELL_TONE = "bell_tone"
-SETTINGS = (ATTR_POWER_LEVEL, ATTR_LIGHT_MODE, ATTR_BELL_TONE)
+ATTR_SPEED_LIMIT = "speed_limit"
+SETTINGS = (ATTR_POWER_LEVEL, ATTR_LIGHT_MODE, ATTR_BELL_TONE, ATTR_SPEED_LIMIT)
 
 LIGHT_BY_NAME = {v: k for k, v in S3_LIGHT_MODES.items()}
 BELL_BY_NAME = {v: k for k, v in BELL_TONES.items()}
+SPEED_LIMIT_BY_NAME = {v: k for k, v in S3_SPEED_LIMITS.items()}
 
 SAVE_SETTINGS_SCHEMA = vol.All(
     vol.Schema(
@@ -30,6 +39,7 @@ SAVE_SETTINGS_SCHEMA = vol.All(
             vol.Optional(ATTR_POWER_LEVEL): vol.All(vol.Coerce(str), vol.In(POWER_LEVELS)),
             vol.Optional(ATTR_LIGHT_MODE): vol.In(list(LIGHT_BY_NAME)),
             vol.Optional(ATTR_BELL_TONE): vol.In(list(BELL_BY_NAME)),
+            vol.Optional(ATTR_SPEED_LIMIT): vol.In(list(SPEED_LIMIT_BY_NAME)),
         }
     ),
     cv.has_at_least_one_key(*SETTINGS),
@@ -72,6 +82,7 @@ async def _async_save_settings(call: ServiceCall) -> None:
     power_level: str | None = call.data.get(ATTR_POWER_LEVEL)
     light_mode: str | None = call.data.get(ATTR_LIGHT_MODE)
     bell_tone: str | None = call.data.get(ATTR_BELL_TONE)
+    speed_limit: str | None = call.data.get(ATTR_SPEED_LIMIT)
 
     async def write(session: S3Session) -> None:
         # All values are written within one Bluetooth connection.
@@ -81,6 +92,8 @@ async def _async_save_settings(call: ServiceCall) -> None:
             await session.set_light_mode(LIGHT_BY_NAME[light_mode])
         if bell_tone is not None:
             await session.set_bell_tone(BELL_BY_NAME[bell_tone])
+        if speed_limit is not None:
+            await session.set_speed_limit(SPEED_LIMIT_BY_NAME[speed_limit])
 
     for coordinator in coordinators:
         await coordinator.async_command(write)

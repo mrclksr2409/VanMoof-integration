@@ -39,3 +39,13 @@ save_settings:
             - bell
             - party
             - foghorn
+    speed_limit:
+      required: false
+      example: eu
+      selector:
+        select:
+          translation_key: speed_limit
+          options:
+            - eu
+            - us
+            - jp

@@ -210,6 +210,10 @@
         "bell_tone": {
           "name": "Beltoon",
           "description": "Geluid dat de belknop afspeelt."
+        },
+        "speed_limit": {
+          "name": "Snelheidsregio",
+          "description": "Maximale ondersteunde snelheid van de motor. Kies alleen een regio waarvan de regels gelden waar je rijdt."
         }
       }
     }
@@ -237,6 +241,13 @@
         "bell": "Bel",
         "party": "Feest",
         "foghorn": "Misthoorn"
+      }
+    },
+    "speed_limit": {
+      "options": {
+        "eu": "Europa (25 km/u)",
+        "us": "VS (32 km/u)",
+        "jp": "Japan (24 km/u)"
       }
     }
   }

@@ -205,6 +205,10 @@ class S3Session:
         """Set light mode (see S3_LIGHT_MODES)."""
         await self.write(S3_LIGHT_MODE, bytes([mode]))
 
+    async def set_speed_limit(self, region: int) -> None:
+        """Set the speed limit region (see S3_SPEED_LIMITS)."""
+        await self.write(S3_SPEED_LIMIT, bytes([region]))
+
     async def set_bell_tone(self, tone: int) -> None:
         """Set bell tone (see BELL_TONES)."""
         await self.write(S3_BELL_TONE, bytes([tone]))

@@ -56,6 +56,7 @@ Speichert Einstellungen per Bluetooth auf dem Rad (nur S3/X3). Alle angegebenen 
 | `power_level` | `0`–`4` (Unterstützungsstufe) |
 | `light_mode` | `auto`, `on`, `off` |
 | `bell_tone` | `sonar`, `bell`, `party`, `foghorn` |
+| `speed_limit` | `eu` (25 km/h), `us` (32 km/h), `jp` (24 km/h) |
 
 Mindestens eine Einstellung muss angegeben werden. Beispiel für eine Automation:
 
@@ -66,7 +67,10 @@ data:
   power_level: 2
   light_mode: auto
   bell_tone: bell
+  speed_limit: eu
 ```
+
+> **Hinweis zur Geschwindigkeitsregion:** Die Region legt fest, bis zu welcher Geschwindigkeit der Motor unterstützt. Wähle nur eine Region, deren Vorschriften dort gelten, wo du fährst. In der EU ist ein Pedelec mit Unterstützung über 25 km/h rechtlich kein Fahrrad mehr (Zulassung, Versicherung, Helm).
 
 ## Sprachen
 

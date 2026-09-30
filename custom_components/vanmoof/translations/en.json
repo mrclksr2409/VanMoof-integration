@@ -210,6 +210,10 @@
         "bell_tone": {
           "name": "Bell tone",
           "description": "Sound played by the bell button."
+        },
+        "speed_limit": {
+          "name": "Speed limit region",
+          "description": "Maximum assisted speed of the motor. Only choose a region whose rules apply where you ride."
         }
       }
     }
@@ -237,6 +241,13 @@
         "bell": "Bell",
         "party": "Party",
         "foghorn": "Foghorn"
+      }
+    },
+    "speed_limit": {
+      "options": {
+        "eu": "Europe (25 km/h)",
+        "us": "USA (32 km/h)",
+        "jp": "Japan (24 km/h)"
       }
     }
   }

@@ -210,6 +210,10 @@
         "bell_tone": {
           "name": "Klingelton",
           "description": "Ton, den die Klingeltaste abspielt."
+        },
+        "speed_limit": {
+          "name": "Geschwindigkeitsregion",
+          "description": "Höchstgeschwindigkeit der Motorunterstützung. Wähle nur eine Region, deren Vorschriften dort gelten, wo du fährst."
         }
       }
     }
@@ -237,6 +241,13 @@
         "bell": "Klingel",
         "party": "Party",
         "foghorn": "Nebelhorn"
+      }
+    },
+    "speed_limit": {
+      "options": {
+        "eu": "Europa (25 km/h)",
+        "us": "USA (32 km/h)",
+        "jp": "Japan (24 km/h)"
       }
     }
   }

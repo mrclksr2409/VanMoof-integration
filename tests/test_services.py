@@ -31,6 +31,7 @@ async def loaded(hass: HomeAssistant):
     session.set_power_level = AsyncMock()
     session.set_light_mode = AsyncMock()
     session.set_bell_tone = AsyncMock()
+    session.set_speed_limit = AsyncMock()
 
     async def fake_session(_self, action):
         # Polls return a state; the action's writes go to the mock session.
@@ -70,12 +71,14 @@ async def test_save_settings_writes_in_one_session(hass: HomeAssistant, loaded) 
             "power_level": 3,
             "light_mode": "off",
             "bell_tone": "foghorn",
+            "speed_limit": "us",
         },
         blocking=True,
     )
     loaded.set_power_level.assert_awaited_once_with(3)
     loaded.set_light_mode.assert_awaited_once_with(2)
     loaded.set_bell_tone.assert_awaited_once_with(0x18)
+    loaded.set_speed_limit.assert_awaited_once_with(1)
 
 
 async def test_save_settings_only_given_values(hass: HomeAssistant, loaded) -> None:
@@ -88,6 +91,7 @@ async def test_save_settings_only_given_values(hass: HomeAssistant, loaded) -> N
     loaded.set_light_mode.assert_awaited_once_with(0)
     loaded.set_power_level.assert_not_awaited()
     loaded.set_bell_tone.assert_not_awaited()
+    loaded.set_speed_limit.assert_not_awaited()
 
 
 async def test_save_settings_rejects_s5(hass: HomeAssistant, loaded) -> None:
