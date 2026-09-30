@@ -44,6 +44,30 @@ Alle Räder des Kontos werden automatisch angelegt.
 
 Abschließen ist nur physisch am Rad möglich (Kick-Lock). Das ist eine Eigenschaft von VanMoof, keine Einschränkung der Integration.
 
+## Aktionen
+
+### `vanmoof.save_settings` – Radeinstellungen speichern
+
+Speichert Einstellungen per Bluetooth auf dem Rad (nur S3/X3). Alle angegebenen Werte werden in **einer** Bluetooth-Verbindung geschrieben, weggelassene Einstellungen bleiben unverändert. Danach werden die Werte neu vom Rad gelesen.
+
+| Feld | Werte |
+|---|---|
+| `device_id` | ein oder mehrere VanMoof-Räder (Pflicht) |
+| `power_level` | `0`–`4` (Unterstützungsstufe) |
+| `light_mode` | `auto`, `on`, `off` |
+| `bell_tone` | `sonar`, `bell`, `party`, `foghorn` |
+
+Mindestens eine Einstellung muss angegeben werden. Beispiel für eine Automation:
+
+```yaml
+action: vanmoof.save_settings
+data:
+  device_id: 0123456789abcdef0123456789abcdef
+  power_level: 2
+  light_mode: auto
+  bell_tone: bell
+```
+
 ## Installation
 
 1. **In HACS hinzufügen:** HACS → ⋮ → *Benutzerdefinierte Repositories* → `https://github.com/mrclksr2409/VanMoof-integration`, Typ *Integration*.

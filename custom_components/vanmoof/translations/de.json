@@ -182,6 +182,62 @@
   "exceptions": {
     "lock_not_supported": {
       "message": "VanMoof-Räder lassen sich nur durch Drücken des Kick-Locks am Rad abschließen."
+    },
+    "invalid_device": {
+      "message": "Das Gerät {device_id} ist kein VanMoof-Rad eines geladenen Kontos."
+    },
+    "settings_not_supported": {
+      "message": "Für {name} können noch keine Einstellungen gespeichert werden: Schreiben per Bluetooth wird nur bei S3/X3-Rädern unterstützt."
+    }
+  },
+  "services": {
+    "save_settings": {
+      "name": "Radeinstellungen speichern",
+      "description": "Speichert Einstellungen per Bluetooth auf dem Rad. Alle angegebenen Werte werden in einer einzigen Verbindung geschrieben; weggelassene Einstellungen bleiben unverändert. Nur S3/X3-Räder werden unterstützt.",
+      "fields": {
+        "device_id": {
+          "name": "Rad",
+          "description": "Das Rad bzw. die Räder, auf denen die Einstellungen gespeichert werden."
+        },
+        "power_level": {
+          "name": "Unterstützungsstufe",
+          "description": "Motorunterstützung (0 = aus, 4 = maximal)."
+        },
+        "light_mode": {
+          "name": "Licht",
+          "description": "Lichtmodus des Rads."
+        },
+        "bell_tone": {
+          "name": "Klingelton",
+          "description": "Ton, den die Klingeltaste abspielt."
+        }
+      }
+    }
+  },
+  "selector": {
+    "power_level": {
+      "options": {
+        "0": "0 (aus)",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (maximal)"
+      }
+    },
+    "light_mode": {
+      "options": {
+        "auto": "Automatisch",
+        "on": "An",
+        "off": "Aus"
+      }
+    },
+    "bell_tone": {
+      "options": {
+        "sonar": "Sonar",
+        "bell": "Klingel",
+        "party": "Party",
+        "foghorn": "Nebelhorn"
+      }
     }
   }
 }

@@ -182,6 +182,62 @@
   "exceptions": {
     "lock_not_supported": {
       "message": "VanMoof bikes can only be locked by pushing the kick lock on the bike."
+    },
+    "invalid_device": {
+      "message": "Device {device_id} is not a VanMoof bike of a loaded account."
+    },
+    "settings_not_supported": {
+      "message": "Settings cannot be saved on {name} yet: writing via Bluetooth is only supported on S3 / X3 bikes."
+    }
+  },
+  "services": {
+    "save_settings": {
+      "name": "Save bike settings",
+      "description": "Saves settings on the bike via Bluetooth. All given values are written in a single connection; settings that are left out stay unchanged. Only S3 / X3 bikes are supported.",
+      "fields": {
+        "device_id": {
+          "name": "Bike",
+          "description": "The bike(s) to save the settings on."
+        },
+        "power_level": {
+          "name": "Assist level",
+          "description": "Motor assist level (0 = off, 4 = maximum)."
+        },
+        "light_mode": {
+          "name": "Light",
+          "description": "Light mode of the bike."
+        },
+        "bell_tone": {
+          "name": "Bell tone",
+          "description": "Sound played by the bell button."
+        }
+      }
+    }
+  },
+  "selector": {
+    "power_level": {
+      "options": {
+        "0": "0 (off)",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (maximum)"
+      }
+    },
+    "light_mode": {
+      "options": {
+        "auto": "Auto",
+        "on": "On",
+        "off": "Off"
+      }
+    },
+    "bell_tone": {
+      "options": {
+        "sonar": "Sonar",
+        "bell": "Bell",
+        "party": "Party",
+        "foghorn": "Foghorn"
+      }
     }
   }
 }

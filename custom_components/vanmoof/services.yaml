@@ -1,0 +1,41 @@
+save_settings:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: vanmoof
+          multiple: true
+    power_level:
+      required: false
+      example: "2"
+      selector:
+        select:
+          translation_key: power_level
+          options:
+            - "0"
+            - "1"
+            - "2"
+            - "3"
+            - "4"
+    light_mode:
+      required: false
+      example: auto
+      selector:
+        select:
+          translation_key: light_mode
+          options:
+            - auto
+            - "on"
+            - "off"
+    bell_tone:
+      required: false
+      example: bell
+      selector:
+        select:
+          translation_key: bell_tone
+          options:
+            - sonar
+            - bell
+            - party
+            - foghorn
